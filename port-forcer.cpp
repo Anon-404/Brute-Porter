@@ -39,7 +39,7 @@ void banner() {
    dMP"dMP dMP.dMP dMP dMP    dMP   dMP
   dMMMMK" dMMMMK" dMP dMP    dMP   dMMMP
  dMP.aMF dMP"AMF dMP.aMP    dMP   dMP
-dMMMMP" dMP dMP  VMMMP"    dMP   dMMMMMP           )" <<endl;
+dMMMMP" dMP dMP  VMMMP"    dMP   dMMMMMP)" <<endl;
 cout << BLUE;
      cout << R"(
     dMMMMb  .aMMMb  dMMMMb dMMMMMMP dMMMMMP dMMMMb
@@ -54,39 +54,319 @@ dMP      VMMMP" dMP dMP   dMP   dMMMMMP dMP dMP)" <<endl;
 }
 
 int ftp(){
+    
+    
+    
+    
+    
     banner();
+    
+    cout << YELLOW;
+    char dflt;
+    cout << "[?] First try with default credentials [Y/n] : ";
+    cin >> dflt;
+    if(dflt == 'Y' || dflt == 'y'){
+        cout << CYAN;
+        cout << "[*] starting attack with default credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [20,21] : ";
+        cin >> port;
+        
+    }else if(dflt == 'N' || dflt == 'n'){
+        
+        cout << CYAN;
+        cout << "[*] starting attack with user credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [20,21] : ";
+        cin >> port;
+        
+    }else{
+        
+        cout << RED;
+        cout << "\n[!] Ops wrong option.......😕" <<endl;
+        system("sleep 1 && exit 1");
+        
+    }
 
     return 0;
+
+
+
+
+
 }
 
 int ssh(){
-    banner();
+    
+    
+    
+    
+        banner();
+    
+    cout << YELLOW;
+    char dflt;
+    cout << "[?] First try with default credentials [Y/n] : ";
+    cin >> dflt;
+    if(dflt == 'Y' || dflt == 'y'){
+        cout << CYAN;
+        cout << "[*] starting attack with default credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [22,?] : ";
+        cin >> port;
+        
+    }else if(dflt == 'N' || dflt == 'n'){
+        
+        cout << CYAN;
+        cout << "[*] starting attack with user credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [22,?] : ";
+        cin >> port;
+        
+    }else{
+        
+        cout << RED;
+        cout << "\n[!] Ops wrong option.......😕" <<endl;
+        system("sleep 1 && exit 1");
+        
+    }
 
     return 0;
+    
+    
+    
+    
+    
 }
 
 int telnet(){
-    banner();
+    
+    
+    
+    
+    
+        banner();
+    
+    cout << YELLOW;
+    char dflt;
+    cout << "[?] First try with default credentials [Y/n] : ";
+    cin >> dflt;
+    if(dflt == 'Y' || dflt == 'y'){
+        cout << CYAN;
+        cout << "[*] starting attack with default credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [23,?] : ";
+        cin >> port;
+        
+    }else if(dflt == 'N' || dflt == 'n'){
+        
+        cout << CYAN;
+        cout << "[*] starting attack with user credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [23,?] : ";
+        cin >> port;
+        
+    }else{
+        
+        cout << RED;
+        cout << "\n[!] Ops wrong option.......😕" <<endl;
+        system("sleep 1 && exit 1");
+        
+    }
 
     return 0;
+    
+    
+    
+    
 }
 
 int smtp(){
-    banner();
+    
+    
+    
+    
+    
+        banner();
+    
+    cout << YELLOW;
+    char dflt;
+    cout << "[?] First try with default credentials [Y/n] : ";
+    cin >> dflt;
+    if(dflt == 'Y' || dflt == 'y'){
+        cout << CYAN;
+        cout << "[*] starting attack with default credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [25,?] : ";
+        cin >> port;
+        
+    }else if(dflt == 'N' || dflt == 'n'){
+        
+        cout << CYAN;
+        cout << "[*] starting attack with user credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [25,?] : ";
+        cin >> port;
+        
+    }else{
+        
+        cout << RED;
+        cout << "\n[!] Ops wrong option.......😕" <<endl;
+        system("sleep 1 && exit 1");
+        
+    }
 
     return 0;
+    
+    
+    
+    
+    
 }
 
 int mysql(){
-    banner();
+    
+    
+    
+    
+    
+        banner();
+    
+    cout << YELLOW;
+    char dflt;
+    cout << "[?] First try with default credentials [Y/n] : ";
+    cin >> dflt;
+    if(dflt == 'Y' || dflt == 'y'){
+        cout << CYAN;
+        cout << "[*] starting attack with default credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [3306,?] : ";
+        cin >> port;
+        
+    }else if(dflt == 'N' || dflt == 'n'){
+        
+        cout << CYAN;
+        cout << "[*] starting attack with user credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [3306,?] : ";
+        cin >> port;
+        
+    }else{
+        
+        cout << RED;
+        cout << "\n[!] Ops wrong option.......😕" <<endl;
+        system("sleep 1 && exit 1");
+        
+    }
 
     return 0;
+    
+    
+    
+    
+    
 }
 
 int vnc(){
-    banner();
+    
+    
+    
+    
+    
+        banner();
+    
+    cout << YELLOW;
+    char dflt;
+    cout << "[?] First try with default credentials [Y/n] : ";
+    cin >> dflt;
+    if(dflt == 'Y' || dflt == 'y'){
+        cout << CYAN;
+        cout << "[*] starting attack with default credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [5900,?] : ";
+        cin >> port;
+        
+    }else if(dflt == 'N' || dflt == 'n'){
+        
+        cout << CYAN;
+        cout << "[*] starting attack with user credentials " <<endl;
+        string host;
+        int port;
+        
+        cout << YELLOW;
+        cout << "[?] Enter Host [Ip/domain] : ";
+        cin >> host;
+        cout << "[?] Enter port [5900,?] : ";
+        cin >> port;
+        
+    }else{
+        
+        cout << RED;
+        cout << "\n[!] Ops wrong option.......😕" <<endl;
+        system("sleep 1 && exit 1");
+        
+    }
 
     return 0;
+    
+    
+    
+    
+    
 }
 
 
