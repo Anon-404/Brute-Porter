@@ -33,7 +33,7 @@ void banner() {
     system("clear");
 
     cout << CYAN;
-    cout <<"_______________________________________________________________" << endl ;
+    cout <<"__________________________________________________________________" << endl ;
     cout << RED;
     cout << R"(
     dMMMMb  dMMMMb  dMP dMP dMMMMMMP dMMMMMP
@@ -51,7 +51,8 @@ dMP      VMMMP" dMP dMP   dMP   dMMMMMP dMP dMP)" <<endl;
 
     cout << GREEN;
     cout << "\nWilliam Steven (Anon404)" <<endl;
-    cout << CYAN;                                                 cout<<"_______________________________________________________________\n" << endl << RESET;
+    cout << CYAN;                                                 
+    cout<<"__________________________________________________________________\n" << endl << RESET;
 }
 
 bool isHostUp(){
@@ -59,13 +60,17 @@ bool isHostUp(){
     cout << CYAN;
     cout << "[!] Checking the host status.....!" <<endl;
     // logic code here
+
+    return true;
 }
 
 bool isPortOpen(){
      
      cout << CYAN;
      cout << "[!] Checking the port is opened or closed.....!" <<endl;
-    // logic code here
+     // logic code here
+
+     return true;
 }
 
 int ftp(){
