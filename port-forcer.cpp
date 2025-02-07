@@ -1,5 +1,6 @@
 #include <iostream>
 #include <unistd.h>
+#include <fstream>
 
 using namespace std;
 
@@ -53,11 +54,10 @@ dMP      VMMMP" dMP dMP   dMP   dMMMMMP dMP dMP)" <<endl;
     cout << CYAN;                                                 cout<<"_______________________________________________________________\n" << endl << RESET;
 }
 
+
+
 int ftp(){
-    
-    
-    
-    
+     
     
     banner();
     
@@ -83,12 +83,22 @@ int ftp(){
         cout << "[*] starting attack with user credentials " <<endl;
         string host;
         int port;
+        string word,filename;
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
         cout << "[?] Enter port [20,21] : ";
         cin >> port;
+        cout << "[?] Enter wordlist file : ";
+        cin >> filename;
+        ifstream file(filename);
+        if(!file){
+            cout << RED;
+            cout << "\n[!] Unable to open file.......😪" <<endl;
+            system("exit 1");
+        }
+        
         
     }else{
         
@@ -368,6 +378,7 @@ int vnc(){
     
     
 }
+
 
 
 int main() {
