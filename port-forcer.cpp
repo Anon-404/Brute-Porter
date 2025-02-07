@@ -54,11 +54,22 @@ dMP      VMMMP" dMP dMP   dMP   dMMMMMP dMP dMP)" <<endl;
     cout << CYAN;                                                 cout<<"_______________________________________________________________\n" << endl << RESET;
 }
 
+bool isHostUp(){
+    
+    cout << CYAN;
+    cout << "[!] Checking the host status.....!" <<endl;
+    // logic code here
+}
 
+bool isPortOpen(){
+     
+     cout << CYAN;
+     cout << "[!] Checking the port is opened or closed.....!" <<endl;
+    // logic code here
+}
 
 int ftp(){
-     
-    
+        
     banner();
     
     cout << YELLOW;
@@ -73,9 +84,17 @@ int ftp(){
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
-        cin >> host;
+        cin >> host;        
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [20,21] : ";
-        cin >> port;
+        cin >> port;      
+        isPortOpen();
+        
+        /*
+            default credentials checker logic 
+        */
         
     }else if(dflt == 'N' || dflt == 'n'){
         
@@ -83,22 +102,22 @@ int ftp(){
         cout << "[*] starting attack with user credentials " <<endl;
         string host;
         int port;
-        string word,filename;
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
+        
+        cout << CYAN;
+        cout << "[!] Checking the host status.....!" <<endl;
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [20,21] : ";
         cin >> port;
-        cout << "[?] Enter wordlist file : ";
-        cin >> filename;
-        ifstream file(filename);
-        if(!file){
-            cout << RED;
-            cout << "\n[!] Unable to open file.......😪" <<endl;
-            system("exit 1");
-        }
         
+        cout << CYAN;
+        cout << "[!] Checking the port is opened or closed.....!" <<endl;
+        isPortOpen();
         
     }else{
         
@@ -107,21 +126,28 @@ int ftp(){
         system("sleep 1 && exit 1");
         
     }
+    
+    string word,filename;
+    cout << YELLOW;
+    cout << "[?] Enter wordlist file : ";
+    cin >> filename;
+    ifstream file(filename);
+    if(!file){
+        cout << RED;
+        cout << "\n[!] Unable to open file.......😪" <<endl;
+        system("exit 1");
+    }
+    
+    /*
+        accual code
+    */
 
     return 0;
-
-
-
-
-
 }
 
 int ssh(){
-    
-    
-    
-    
-        banner();
+        
+    banner();
     
     cout << YELLOW;
     char dflt;
@@ -135,9 +161,17 @@ int ssh(){
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
-        cin >> host;
+        cin >> host;        
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [22,?] : ";
-        cin >> port;
+        cin >> port;      
+        isPortOpen();
+        
+        /*
+            default credentials checker logic 
+        */
         
     }else if(dflt == 'N' || dflt == 'n'){
         
@@ -149,8 +183,18 @@ int ssh(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
+        
+        cout << CYAN;
+        cout << "[!] Checking the host status.....!" <<endl;
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [22,?] : ";
         cin >> port;
+        
+        cout << CYAN;
+        cout << "[!] Checking the port is opened or closed.....!" <<endl;
+        isPortOpen();
         
     }else{
         
@@ -159,22 +203,28 @@ int ssh(){
         system("sleep 1 && exit 1");
         
     }
+    
+    string word,filename;
+    cout << YELLOW;
+    cout << "[?] Enter wordlist file : ";
+    cin >> filename;
+    ifstream file(filename);
+    if(!file){
+        cout << RED;
+        cout << "\n[!] Unable to open file.......😪" <<endl;
+        system("exit 1");
+    }
+    
+    /*
+        accual code
+    */
 
     return 0;
-    
-    
-    
-    
-    
 }
 
 int telnet(){
-    
-    
-    
-    
-    
-        banner();
+        
+    banner();
     
     cout << YELLOW;
     char dflt;
@@ -188,9 +238,17 @@ int telnet(){
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
-        cin >> host;
+        cin >> host;        
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [23,?] : ";
-        cin >> port;
+        cin >> port;      
+        isPortOpen();
+        
+        /*
+            default credentials checker logic 
+        */
         
     }else if(dflt == 'N' || dflt == 'n'){
         
@@ -202,8 +260,18 @@ int telnet(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
+        
+        cout << CYAN;
+        cout << "[!] Checking the host status.....!" <<endl;
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [23,?] : ";
         cin >> port;
+        
+        cout << CYAN;
+        cout << "[!] Checking the port is opened or closed.....!" <<endl;
+        isPortOpen();
         
     }else{
         
@@ -212,21 +280,27 @@ int telnet(){
         system("sleep 1 && exit 1");
         
     }
+    
+    string word,filename;
+    cout << YELLOW;
+    cout << "[?] Enter wordlist file : ";
+    cin >> filename;
+    ifstream file(filename);
+    if(!file){
+        cout << RED;
+        cout << "\n[!] Unable to open file.......😪" <<endl;
+        system("exit 1");
+    }
+    
+    /*
+        accual code
+    */
 
     return 0;
-    
-    
-    
-    
 }
-
 int smtp(){
-    
-    
-    
-    
-    
-        banner();
+        
+    banner();
     
     cout << YELLOW;
     char dflt;
@@ -240,9 +314,17 @@ int smtp(){
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
-        cin >> host;
+        cin >> host;        
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [25,?] : ";
-        cin >> port;
+        cin >> port;      
+        isPortOpen();
+        
+        /*
+            default credentials checker logic 
+        */
         
     }else if(dflt == 'N' || dflt == 'n'){
         
@@ -254,8 +336,18 @@ int smtp(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
+        
+        cout << CYAN;
+        cout << "[!] Checking the host status.....!" <<endl;
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [25,?] : ";
         cin >> port;
+        
+        cout << CYAN;
+        cout << "[!] Checking the port is opened or closed.....!" <<endl;
+        isPortOpen();
         
     }else{
         
@@ -264,22 +356,28 @@ int smtp(){
         system("sleep 1 && exit 1");
         
     }
+    
+    string word,filename;
+    cout << YELLOW;
+    cout << "[?] Enter wordlist file : ";
+    cin >> filename;
+    ifstream file(filename);
+    if(!file){
+        cout << RED;
+        cout << "\n[!] Unable to open file.......😪" <<endl;
+        system("exit 1");
+    }
+    
+    /*
+        accual code
+    */
 
     return 0;
-    
-    
-    
-    
-    
 }
 
 int mysql(){
-    
-    
-    
-    
-    
-        banner();
+        
+    banner();
     
     cout << YELLOW;
     char dflt;
@@ -293,9 +391,17 @@ int mysql(){
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
-        cin >> host;
+        cin >> host;        
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [3306,?] : ";
-        cin >> port;
+        cin >> port;      
+        isPortOpen();
+        
+        /*
+            default credentials checker logic 
+        */
         
     }else if(dflt == 'N' || dflt == 'n'){
         
@@ -307,8 +413,18 @@ int mysql(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
+        
+        cout << CYAN;
+        cout << "[!] Checking the host status.....!" <<endl;
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [3306,?] : ";
         cin >> port;
+        
+        cout << CYAN;
+        cout << "[!] Checking the port is opened or closed.....!" <<endl;
+        isPortOpen();
         
     }else{
         
@@ -317,22 +433,28 @@ int mysql(){
         system("sleep 1 && exit 1");
         
     }
+    
+    string word,filename;
+    cout << YELLOW;
+    cout << "[?] Enter wordlist file : ";
+    cin >> filename;
+    ifstream file(filename);
+    if(!file){
+        cout << RED;
+        cout << "\n[!] Unable to open file.......😪" <<endl;
+        system("exit 1");
+    }
+    
+    /*
+        accual code
+    */
 
     return 0;
-    
-    
-    
-    
-    
 }
 
 int vnc(){
-    
-    
-    
-    
-    
-        banner();
+        
+    banner();
     
     cout << YELLOW;
     char dflt;
@@ -346,9 +468,17 @@ int vnc(){
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
-        cin >> host;
+        cin >> host;        
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [5900,?] : ";
-        cin >> port;
+        cin >> port;      
+        isPortOpen();
+        
+        /*
+            default credentials checker logic 
+        */
         
     }else if(dflt == 'N' || dflt == 'n'){
         
@@ -360,8 +490,18 @@ int vnc(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
+        
+        cout << CYAN;
+        cout << "[!] Checking the host status.....!" <<endl;
+        isHostUp();
+        
+        cout << YELLOW;
         cout << "[?] Enter port [5900,?] : ";
         cin >> port;
+        
+        cout << CYAN;
+        cout << "[!] Checking the port is opened or closed.....!" <<endl;
+        isPortOpen();
         
     }else{
         
@@ -370,13 +510,23 @@ int vnc(){
         system("sleep 1 && exit 1");
         
     }
+    
+    string word,filename;
+    cout << YELLOW;
+    cout << "[?] Enter wordlist file : ";
+    cin >> filename;
+    ifstream file(filename);
+    if(!file){
+        cout << RED;
+        cout << "\n[!] Unable to open file.......😪" <<endl;
+        system("exit 1");
+    }
+    
+    /*
+        accual code
+    */
 
     return 0;
-    
-    
-    
-    
-    
 }
 
 
