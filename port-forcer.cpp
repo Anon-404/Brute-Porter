@@ -30,24 +30,24 @@ using namespace std;
 
 void banner() {
     system("clear");
-    
+
     cout << CYAN;
     cout <<"_______________________________________________________________" << endl ;
     cout << RED;
     cout << R"(
-    dMMMMb  dMMMMb  dMP dMP dMMMMMMP dMMMMMP       
-   dMP"dMP dMP.dMP dMP dMP    dMP   dMP            
-  dMMMMK" dMMMMK" dMP dMP    dMP   dMMMP           
- dMP.aMF dMP"AMF dMP.aMP    dMP   dMP              
+    dMMMMb  dMMMMb  dMP dMP dMMMMMMP dMMMMMP
+   dMP"dMP dMP.dMP dMP dMP    dMP   dMP
+  dMMMMK" dMMMMK" dMP dMP    dMP   dMMMP
+ dMP.aMF dMP"AMF dMP.aMP    dMP   dMP
 dMMMMP" dMP dMP  VMMMP"    dMP   dMMMMMP           )" <<endl;
 cout << BLUE;
-     cout << R"(                                              
-    dMMMMb  .aMMMb  dMMMMb dMMMMMMP dMMMMMP dMMMMb 
-   dMP.dMP dMP"dMP dMP.dMP   dMP   dMP     dMP.dMP 
-  dMMMMP" dMP dMP dMMMMK"   dMP   dMMMP   dMMMMK"  
- dMP     dMP.aMP dMP"AMF   dMP   dMP     dMP"AMF   
+     cout << R"(
+    dMMMMb  .aMMMb  dMMMMb dMMMMMMP dMMMMMP dMMMMb
+   dMP.dMP dMP"dMP dMP.dMP   dMP   dMP     dMP.dMP
+  dMMMMP" dMP dMP dMMMMK"   dMP   dMMMP   dMMMMK"
+ dMP     dMP.aMP dMP"AMF   dMP   dMP     dMP"AMF
 dMP      VMMMP" dMP dMP   dMP   dMMMMMP dMP dMP)" <<endl;
-     
+
     cout << GREEN;
     cout << "\nWilliam Steven (Anon404)" <<endl;
     cout << CYAN;                                                 cout<<"_______________________________________________________________\n" << endl << RESET;
@@ -55,36 +55,48 @@ dMP      VMMMP" dMP dMP   dMP   dMMMMMP dMP dMP)" <<endl;
 
 int ftp(){
     banner();
+
+    return 0;
 }
 
 int ssh(){
     banner();
+
+    return 0;
 }
 
 int telnet(){
     banner();
+
+    return 0;
 }
 
 int smtp(){
     banner();
+
+    return 0;
 }
 
 int mysql(){
     banner();
+
+    return 0;
 }
 
 int vnc(){
     banner();
+
+    return 0;
 }
 
 
 int main() {
-    
+
     banner();
     cout << BRGREEN;
     cout << WHITE;
     cout << "[+] Available  ports \n" <<endl <<RESET;
-    
+
     cout << GREEN;
     cout << " 1) FTP : 20,21" <<endl;
     cout << " 2) SSH : 22" <<endl;
@@ -93,12 +105,12 @@ int main() {
     cout << " 5) MySql : 3306" <<endl;
     cout << " 6) VNC : 5900" <<endl;
     cout << endl << RESET;
-    
+
     cout << YELLOW;
     int port;
     cout << "[?] Choose port number : ";
     cin >> port ;
-    
+
     system("sleep 0.5");
     if(port == 1 || port == 20 || port == 21) {
         cout << CYAN;
@@ -134,8 +146,8 @@ int main() {
         cout << RED;
         cout << "\n[!] Ops wrong option.......😕" <<endl;
         system("sleep 1 && exit 1");
-        
+
     }
-    
+
     return 0;
 }
