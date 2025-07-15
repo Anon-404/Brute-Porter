@@ -1,6 +1,6 @@
 # 🔐 Brute-Porter
 
-> Fast and flexible SSH & FTP brute-force tool built in C++ with multi-threading support.
+Fast and flexible SSH & FTP brute-force tool built in C++ with multi-threading support.
 
 ---
 
@@ -93,9 +93,8 @@ clang++ brute-porter.cpp -o brute-porter -lssh -lcurl
 
 ## 👤 Author
 
-Name: William Steven
-
-GitHub: Anon-404
+**Name:** William Steven  
+**GitHub:** [Anon-404](https://github.com/Anon-404)
 
 
 
