@@ -104,3 +104,9 @@ clang++ brute-porter.cpp -o brute-porter -lssh -lcurl
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).  
 You are free to use, modify, and distribute this software with proper credit.
+
+---
+
+## 🏷️ Tags
+
+`C++` `brute-force` `ssh` `ftp` `penetration-testing` `ethical-hacking` `cybersecurity` `multi-threading`
