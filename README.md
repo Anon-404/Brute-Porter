@@ -102,4 +102,5 @@ clang++ brute-porter.cpp -o brute-porter -lssh -lcurl
 
 ## 📄 License
 
-This project is licensed under the MIT License.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).  
+You are free to use, modify, and distribute this software with proper credit.
